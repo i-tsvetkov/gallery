@@ -24,6 +24,5 @@ ViewModel = ->
 
   return self
 
-window.model = new ViewModel()
-ko.applyBindings(model)
+ko.applyBindings(new ViewModel())
 
