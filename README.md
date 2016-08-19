@@ -1,7 +1,7 @@
-# CSS3 gallery
-Under construction
+# Image Gallery
+Basic image gallery build with CSS3, CoffeeScript and knockout.js.
 
-## TODO
-* use knockout.js
-* update readme
+## Screenshots
+![](screenshots/screenshot1.png)
+![](screenshots/screenshot2.png)
 
