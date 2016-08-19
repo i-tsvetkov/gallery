@@ -72,7 +72,6 @@
         align-items: center;
         justify-content: center;
         z-index: 99;
-        display: none;
       }
 
       #preview > img {
@@ -118,116 +117,25 @@
         left: 0;
       }
     </style>
-    <script src="gallery.js"></script>
+    <script src="knockout-3.4.0.js"></script>
   </head>
   <body>
     <main>
-      <div class="gallery">
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id0" class="img" src="file:///home/ito/github/gallery/imgs/redwood-national-park-1587301_640.jpg"/>
-            </div>
+    <div class="gallery" data-bind="foreach: images">
+        <div class="imgbox">
+          <div class="circle">
+            <img class="img" data-bind="click: $root.showPreview, attr: { src: $data, index: $index }">
           </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id1" class="img" src="file:///home/ito/github/gallery/imgs/yellowstone-national-park-1589616_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id2" class="img" src="file:///home/ito/github/gallery/imgs/wild-1246231_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id3" class="img" src="file:///home/ito/github/gallery/imgs/lion-515028_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id4" class="img" src="file:///home/ito/github/gallery/imgs/aries-44188_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id5" class="img" src="file:///home/ito/github/gallery/imgs/guinea-pig-449983_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id6" class="img" src="file:///home/ito/github/gallery/imgs/black-and-white-201942_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id7" class="img" src="file:///home/ito/github/gallery/imgs/ostrich-202659_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id8" class="img" src="file:///home/ito/github/gallery/imgs/waterfall-163579_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id9" class="img" src="file:///home/ito/github/gallery/imgs/camel-1378571_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id10" class="img" src="file:///home/ito/github/gallery/imgs/black-stork-208599_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id11" class="img" src="file:///home/ito/github/gallery/imgs/great-spotted-woodpecker-1597030_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id12" class="img" src="file:///home/ito/github/gallery/imgs/thorns-419688_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id13" class="img" src="file:///home/ito/github/gallery/imgs/rose-185961_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id14" class="img" src="file:///home/ito/github/gallery/imgs/sedona-1598194_640.jpg"/>
-            </div>
-          </div>
-        
-          <div class="imgbox">
-            <div class="circle">
-              <img id="id15" class="img" src="file:///home/ito/github/gallery/imgs/horseshoe-bend-4040_640.jpg"/>
-            </div>
-          </div>
-        
+        </div>
       </div>
     </main>
-    <div id="preview">
-      <img/>
-      <span class="right-arrow">&#9654;</span>
-      <span class="left-arrow">&#9664;</span>
+    <div id="preview" data-bind="click: $root.hidePreview, visible: previewVisible">
+      <img data-bind="click: ()=>{}, clickBubble: false, attr: { src: currentPreview }">
+      <span class="right-arrow" data-bind="click: goRight, clickBubble: false">&#9654;</span>
+      <span class="left-arrow" data-bind="click: goLeft, clickBubble: false">&#9664;</span>
       <span class="cross">&#10006;</span>
     </div>
+    <script src="gallery.js"></script>
   </body>
 </html>
 
