@@ -8,21 +8,31 @@
   </head>
   <body>
     <main>
-    <div id="gallery" data-bind="foreach: images">
+      <div id="gallery" data-bind="foreach: images">
         <div class="imgbox">
           <div class="circle">
-            <img class="img" data-bind="click: $root.showPreview, attr: { src: $data, index: $index }">
+            <img class="img"
+              data-bind="click: $root.showPreview,
+                         attr: { src: $data, index: $index }">
           </div>
         </div>
       </div>
     </main>
-    <div id="preview" data-bind="click: $root.hidePreview, visible: previewVisible">
+    <div id="preview" tabindex="0"
+      data-bind="click: hidePreview,
+                 visible: previewVisible,
+                 hasFocus: previewVisible,
+                 event: { keydown: previewKeydown }">
       <img id="preview-img"
-        data-bind="click: ()=>{}, clickBubble: false, attr: { src: currentPreview }">
+        data-bind="click: () => {},
+                   clickBubble: false,
+                   attr: { src: currentPreview }">
       <span id="right-arrow"
-        data-bind="click: goRight, clickBubble: false">&#9654;</span>
+        data-bind="click: goRight,
+                   clickBubble: false">&#9654;</span>
       <span id="left-arrow"
-        data-bind="click: goLeft, clickBubble: false">&#9664;</span>
+        data-bind="click: goLeft,
+                   clickBubble: false">&#9664;</span>
       <span id="cross">&#10006;</span>
     </div>
     <script src="gallery.js"></script>

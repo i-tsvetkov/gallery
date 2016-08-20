@@ -23,6 +23,21 @@
     self.hidePreview = function() {
       return self.previewVisible(false);
     };
+    self.previewKeydown = function(_, e) {
+      switch (e.key) {
+        case 'Escape':
+          self.hidePreview();
+          break;
+        case 'ArrowRight':
+        case 'Enter':
+          self.goRight();
+          break;
+        case 'ArrowLeft':
+        case 'Backspace':
+          self.goLeft();
+      }
+      return true;
+    };
     self.goRight = function() {
       currentIndex = modulo(currentIndex + 1, self.imagesCount());
       return self.currentPreview(self.images()[currentIndex]);

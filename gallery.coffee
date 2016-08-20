@@ -14,6 +14,16 @@ ViewModel = ->
   self.hidePreview = ->
     self.previewVisible false
 
+  self.previewKeydown = (_, e) ->
+    switch e.key
+      when 'Escape'
+        self.hidePreview()
+      when 'ArrowRight', 'Enter'
+        self.goRight()
+      when 'ArrowLeft', 'Backspace'
+        self.goLeft()
+    return true
+
   self.goRight = ->
     currentIndex = (currentIndex + 1) %% self.imagesCount()
     self.currentPreview self.images()[currentIndex]
