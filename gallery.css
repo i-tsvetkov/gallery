@@ -79,7 +79,6 @@ img.img {
   top: 0;
   right: 0;
   padding: 26px;
-  font-size: 2em;
 }
 
 #cross, #right-arrow, #left-arrow {
@@ -101,7 +100,6 @@ img.img {
   justify-content: center;
   width: 10%;
   height: 100%;
-  font-size: 4em;
 }
 
 #right-arrow {
