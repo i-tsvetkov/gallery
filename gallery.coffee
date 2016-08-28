@@ -5,11 +5,13 @@ ViewModel = ->
   self.previewVisible = ko.observable false
   self.currentPreview = ko.observable ''
   currentIndex = 0
+  preview = document.getElementById 'preview'
 
   self.showPreview = (url, e) ->
     self.currentPreview url
     self.previewVisible true
     currentIndex = Number(e.target.getAttribute('index'))
+    preview.focus()
 
   self.hidePreview = ->
     self.previewVisible false
