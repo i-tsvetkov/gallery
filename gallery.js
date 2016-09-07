@@ -30,7 +30,8 @@
       return preview.focus();
     };
     self.hidePreview = function() {
-      return self.previewVisible(false);
+      self.previewVisible(false);
+      return self.currentPreview('');
     };
     self.previewKeydown = function(_, e) {
       switch (e.key) {
@@ -49,11 +50,13 @@
     };
     self.goRight = function() {
       currentIndex = modulo(currentIndex + 1, self.imagesCount());
-      return self.currentPreview(self.images()[currentIndex]);
+      self.currentPreview(self.images()[currentIndex]);
+      return preview.focus();
     };
     self.goLeft = function() {
       currentIndex = modulo(currentIndex - 1, self.imagesCount());
-      return self.currentPreview(self.images()[currentIndex]);
+      self.currentPreview(self.images()[currentIndex]);
+      return preview.focus();
     };
     return self;
   };

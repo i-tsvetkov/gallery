@@ -18,6 +18,7 @@ ViewModel = ->
 
   self.hidePreview = ->
     self.previewVisible false
+    self.currentPreview ''
 
   self.previewKeydown = (_, e) ->
     switch e.key
@@ -32,10 +33,12 @@ ViewModel = ->
   self.goRight = ->
     currentIndex = (currentIndex + 1) %% self.imagesCount()
     self.currentPreview self.images()[currentIndex]
+    preview.focus()
 
   self.goLeft  = ->
     currentIndex = (currentIndex - 1) %% self.imagesCount()
     self.currentPreview self.images()[currentIndex]
+    preview.focus()
 
   return self
 
