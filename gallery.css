@@ -59,6 +59,7 @@ img.img {
   padding: 16px;
   flex-direction: column;
   z-index: 99;
+  outline-color: transparent;
 }
 
 #preview-img {

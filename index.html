@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="gallery.css">
     <script src="knockout-3.4.0.js"></script>
   </head>
-  <body>
+  <body data-bind="style: { overflow: bodyOverflow }">
     <main>
       <div id="gallery" data-bind="foreach: images">
         <div class="imgbox">

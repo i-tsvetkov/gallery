@@ -4,6 +4,9 @@ ViewModel = ->
   self.imagesCount = ko.pureComputed -> self.images().length
   self.previewVisible = ko.observable false
   self.currentPreview = ko.observable ''
+  self.bodyOverflow = ko.pureComputed -> if self.previewVisible() \
+                                          then 'hidden' \
+                                          else 'visible'
   currentIndex = 0
   preview = document.getElementById 'preview'
 

@@ -14,6 +14,13 @@
     });
     self.previewVisible = ko.observable(false);
     self.currentPreview = ko.observable('');
+    self.bodyOverflow = ko.pureComputed(function() {
+      if (self.previewVisible()) {
+        return 'hidden';
+      } else {
+        return 'visible';
+      }
+    });
     currentIndex = 0;
     preview = document.getElementById('preview');
     self.showPreview = function(url, e) {
