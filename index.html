@@ -23,9 +23,11 @@
       data-bind="click: hidePreview,
                  visible: previewVisible,
                  event: { keydown: previewKeydown }">
+      <div id="loader" data-bind="visible: isLoading"></div>
       <img id="preview-img"
         data-bind="click: () => {},
                    clickBubble: false,
+                   event: { load: hideLoader },
                    attr: { src: currentPreview }">
       <span id="right-arrow"
         data-bind="click: goRight,

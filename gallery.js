@@ -21,17 +21,25 @@
         return 'visible';
       }
     });
+    self.isLoading = ko.observable(true);
     currentIndex = 0;
     preview = document.getElementById('preview');
     self.showPreview = function(url, e) {
-      self.currentPreview(url);
       self.previewVisible(true);
-      currentIndex = Number(e.target.getAttribute('index'));
+      self.setPreviewImg(url);
+      return currentIndex = Number(e.target.getAttribute('index'));
+    };
+    self.setPreviewImg = function(url) {
+      self.currentPreview('');
+      self.isLoading(true);
+      self.currentPreview(url);
       return preview.focus();
     };
     self.hidePreview = function() {
-      self.previewVisible(false);
-      return self.currentPreview('');
+      return self.previewVisible(false);
+    };
+    self.hideLoader = function() {
+      return self.isLoading(false);
     };
     self.previewKeydown = function(_, e) {
       switch (e.key) {
@@ -50,13 +58,11 @@
     };
     self.goRight = function() {
       currentIndex = modulo(currentIndex + 1, self.imagesCount());
-      self.currentPreview(self.images()[currentIndex]);
-      return preview.focus();
+      return self.setPreviewImg(self.images()[currentIndex]);
     };
     self.goLeft = function() {
       currentIndex = modulo(currentIndex - 1, self.imagesCount());
-      self.currentPreview(self.images()[currentIndex]);
-      return preview.focus();
+      return self.setPreviewImg(self.images()[currentIndex]);
     };
     return self;
   };

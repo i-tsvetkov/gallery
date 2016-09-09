@@ -7,18 +7,26 @@ ViewModel = ->
   self.bodyOverflow = ko.pureComputed -> if self.previewVisible() \
                                           then 'hidden' \
                                           else 'visible'
+  self.isLoading = ko.observable true
   currentIndex = 0
   preview = document.getElementById 'preview'
 
   self.showPreview = (url, e) ->
-    self.currentPreview url
     self.previewVisible true
+    self.setPreviewImg url
     currentIndex = Number(e.target.getAttribute('index'))
+
+  self.setPreviewImg = (url) ->
+    self.currentPreview ''
+    self.isLoading true
+    self.currentPreview url
     preview.focus()
 
   self.hidePreview = ->
     self.previewVisible false
-    self.currentPreview ''
+
+  self.hideLoader = ->
+    self.isLoading false
 
   self.previewKeydown = (_, e) ->
     switch e.key
@@ -32,13 +40,11 @@ ViewModel = ->
 
   self.goRight = ->
     currentIndex = (currentIndex + 1) %% self.imagesCount()
-    self.currentPreview self.images()[currentIndex]
-    preview.focus()
+    self.setPreviewImg self.images()[currentIndex]
 
   self.goLeft  = ->
     currentIndex = (currentIndex - 1) %% self.imagesCount()
-    self.currentPreview self.images()[currentIndex]
-    preview.focus()
+    self.setPreviewImg self.images()[currentIndex]
 
   return self
 
