@@ -107,6 +107,9 @@ img.img {
   animation: spin 2s linear infinite;
   position: fixed;
   z-index: -1;
+  top: 50%;
+  left: 50%;
+  margin: -106px 0 0 -106px;
 }
 
 @keyframes spin {
