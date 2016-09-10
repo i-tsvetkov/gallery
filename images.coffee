@@ -1,4 +1,4 @@
-images = ["imgs/redwood-national-park-1587301_640.jpg",
+IMAGES = ["imgs/redwood-national-park-1587301_640.jpg",
           "imgs/yellowstone-national-park-1589616_640.jpg",
           "imgs/wild-1246231_640.jpg","imgs/lion-515028_640.jpg",
           "imgs/aries-44188_640.jpg",

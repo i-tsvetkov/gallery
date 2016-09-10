@@ -1,6 +1,6 @@
 ViewModel = ->
   self = this
-  self.images = ko.observableArray images
+  self.images = ko.observableArray IMAGES
   self.imagesCount = ko.pureComputed -> self.images().length
   self.previewVisible = ko.observable false
   self.currentPreview = ko.observable ''
