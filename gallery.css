@@ -34,6 +34,7 @@ main {
   border: 1px solid hsla(0, 0%, 75%, .75);
   border-radius: 50%;
   transition: transform 0.5s, box-shadow 0.1s;
+  box-sizing: border-box;
 }
 
 .circle:hover {
